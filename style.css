@@ -1,0 +1,626 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+:root {
+  --primary: #030206;      
+  --secondary: #69021e;    
+  --accent: #aa0235;       
+  --highlight: #710755;    
+  --blue-dark: #021233;
+
+  --light: #f5f5f8;
+  --dark: #030206;
+  --gray: #666;
+
+  --radius: 14px;
+  --shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.7;
+}
+h3{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*container*/
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--secondary);
+}
+
+.skills-subtitle {
+  text-align: center;
+  color: var(--gray);
+  margin-bottom: 50px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/*NAVBAR*/
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(3,2,6,0.95);
+  backdrop-filter: blur(10px);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 25px;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  transition: 0.4s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/*HERO SECTION*/
+.hero {
+  min-height: 65vh;
+  padding: 100px 20px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    #030206,
+    #021233,
+    #69021e,
+    #030206
+  );
+  background-size: 400% 400%;
+  animation: heroFlow 14s ease infinite;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.hero span {
+  color: var(--accent);
+}
+
+.hero p {
+  margin: 15px 0 30px;
+  color: #ddd;
+}
+
+@keyframes heroFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* BUTTON*/
+.btn {
+  background: linear-gradient(135deg, var(--accent), var(--highlight));
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.4s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(170,2,53,0.4);
+}
+
+
+/* ABOUT SECTION FIX*/
+
+.about {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.about-box {
+  max-width: 1000px;
+  margin: 0 auto;          
+  padding: 0 20px;         
+}
+
+.about-text {
+  max-width: 700px;        
+  margin: 0 auto;          
+}
+
+.about-text h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--secondary);
+}
+
+.about-text p {
+  text-align: center;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* points */
+.about-points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  justify-content: center;
+}
+
+.about-points div {
+  background: #f8f8f8;
+  padding: 14px 18px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* MEDIA QUERY*/
+@media (max-width: 768px) {
+  .about-text {
+    max-width: 100%;
+  }
+
+  .about-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-box {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .about-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SKILLS TAGS*/
+
+.skills span {
+  display: inline-block;
+  padding: 8px 18px;
+  margin: 6px;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--highlight),
+    var(--secondary)
+  );
+  background-size: 200% 200%;
+  animation: skillFlow 4s ease infinite;
+  transition: 0.4s;
+}
+
+@keyframes skillFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.skills span:hover {
+  transform: translateY(-6px) scale(1.08);
+}
+
+/* SKILLS & PROJECT CARDS*/
+.skills-list {
+  max-width: 600px;
+  margin: auto;
+}
+
+.skill-row {
+  margin-bottom: 25px;
+}
+
+.skill-row span {
+  font-weight: 600;
+}
+
+.bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.bar div {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--highlight)
+  );
+}
+
+.project-card {
+  border-top: 5px solid var(--highlight);
+}
+.projects {
+  background: #fafafa;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--highlight)
+  );
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.project-card:hover::before {
+  opacity: 0.12;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+.skill-card:hover,
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+}
+
+/*projects*/
+.projects {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.3rem;
+  margin-bottom: 60px;
+}
+
+/* Container */
+.project-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Project Item */
+.project-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px 30px;
+  border-radius: 18px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* Left Accent Line */
+.project-card::before {
+  content: "";
+  width: 5px;
+  background: linear-gradient(180deg, #7f5af0, #2cb67d);
+  border-radius: 10px;
+}
+
+/* Content */
+.project-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Hover */
+.project-card:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/*DROP DOWN  */
+.project-dropdown {
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+}
+
+.project-dropdown .btn {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.dropdown-menu {
+  margin-top: 15px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 24px;
+  text-decoration: none;
+}
+
+/* Show menu */
+.project-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .project-card {
+    padding: 20px;
+  }
+}
+
+/*SKILL */
+
+.skills-list {
+  max-width: 650px;
+  margin: 40px auto 0;
+}
+
+/* each row */
+.skill-row {
+  margin-bottom: 28px;
+}
+
+.skill-row span {
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--secondary);
+}
+
+/* progress background */
+.bar {
+  width: 100%;
+  height: 12px;
+  background: #e6e6ea;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* progress fill */
+.bar div {
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--highlight)
+  );
+  animation: fillBar 1.6s ease forwards;
+}
+
+/* smooth load animation */
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+}
+
+/* optional hover effect */
+.skill-row:hover .bar div {
+  filter: brightness(1.1);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .skills-list {
+    padding: 0 10px;
+  }
+
+  .skill-row span {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* CONTACT*/
+.contact {
+  padding: 90px 0;
+  background: linear-gradient(
+    135deg,
+    #030206,
+    #69021e,
+    #710755
+  );
+  color: white;
+}
+
+.contact h2 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  background: rgba(255,255,255,0.95);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(170,2,53,0.25);
+}
+
+/* FOOTER*/
+.footer {
+  background: var(--primary);
+  color: var(--accent);
+  text-align: center;
+  padding: 20px;
+}
+
+/* */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav a {
+    margin-left: 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+
+.project-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 0px;
+  bottom: 20px;
+}
+
+/* hidden by default */
+.dropdown-menu {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  min-width: 220px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* show on hover */
+.project-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--highlight)
+  );
+  color: white;
+}
